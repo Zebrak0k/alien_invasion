@@ -2,10 +2,10 @@ import pygame
 
 
 class Ship:
-    def __init__(self, screen, settings):
-        self.screen = screen
-        self.screen_rect = screen.get_rect()
-        self.settings = settings
+    def __init__(self, ai_game):
+        self.screen = ai_game.screen
+        self.screen_rect = ai_game.screen.get_rect()
+        self.settings = ai_game.settings
 
         self.image = pygame.image.load('images/Main Ship - Base - Full health.png')
         self.rect = self.image.get_rect()
@@ -14,6 +14,7 @@ class Ship:
 
         self.moving_right = False
         self.moving_left = False
+        self.moving_up = False
 
     def update(self):
         if self.moving_right and self.rect.right < self.screen_rect.right:
@@ -21,5 +22,6 @@ class Ship:
         elif self.moving_left and self.rect.left > self.screen_rect.left:
             self.x -= self.settings.ship_speed
         self.rect.x = self.x
+
     def blitme(self):
         self.screen.blit(self.image, self.rect)
