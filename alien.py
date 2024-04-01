@@ -14,7 +14,6 @@ class Alien(Sprite):
 
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
-        print(self.rect.y, self.rect.x)
 
         self.x = float(self.rect.x)
 
